@@ -26,7 +26,6 @@
     background-color: var(--cream);
     color: var(--text);
     min-height: 100vh;
-    position: relative;
     overflow-x: hidden;
   }
 
@@ -49,7 +48,8 @@
     padding: 60px 24px 80px;
   }
 
-  .header { text-align: center; margin-bottom: 56px; }
+  /* ===== HEADER ===== */
+  .header { text-align: center; margin-bottom: 40px; }
 
   .brand-eyebrow {
     font-family: 'Cormorant Garamond', serif;
@@ -76,20 +76,19 @@
     font-size: 16px;
     color: var(--gold-light);
     letter-spacing: 0.1em;
-    margin-bottom: 28px;
+    margin-bottom: 24px;
   }
 
   .divider {
     display: flex;
     align-items: center;
     gap: 16px;
-    margin: 0 auto 28px;
+    margin: 0 auto 24px;
     max-width: 280px;
   }
 
   .divider-line {
-    flex: 1;
-    height: 1px;
+    flex: 1; height: 1px;
     background: linear-gradient(to right, transparent, var(--gold-light));
   }
 
@@ -98,8 +97,7 @@
   }
 
   .divider-diamond {
-    width: 6px;
-    height: 6px;
+    width: 6px; height: 6px;
     background: var(--gold);
     transform: rotate(45deg);
     flex-shrink: 0;
@@ -112,12 +110,49 @@
     letter-spacing: 0.04em;
   }
 
-  /* Account badge — URLパラメータから取得した名前を表示 */
+  /* SNSリンク（ヘッダー下） */
+  .sns-bar {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 24px;
+  }
+
+  .sns-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 16px;
+    border: 1px solid var(--border);
+    border-radius: 40px;
+    font-size: 12px;
+    color: var(--navy);
+    text-decoration: none;
+    letter-spacing: 0.06em;
+    background: white;
+    transition: all 0.18s ease;
+  }
+
+  .sns-link:hover {
+    border-color: var(--gold-light);
+    background: rgba(154,123,79,0.06);
+    color: var(--gold);
+  }
+
+  .sns-icon { font-size: 14px; }
+
+  /* Account badge */
   .account-badge {
+    display: none;
+    justify-content: center;
+    margin-top: 16px;
+  }
+
+  .account-badge-inner {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    margin-top: 20px;
     padding: 8px 20px;
     background: rgba(27,58,92,0.06);
     border: 1px solid var(--border);
@@ -128,18 +163,17 @@
   }
 
   .account-badge-dot {
-    width: 6px;
-    height: 6px;
+    width: 6px; height: 6px;
     background: var(--gold);
     border-radius: 50%;
   }
 
+  /* ===== FORM CARD ===== */
   .form-card {
     background: var(--warm-white);
     border: 1px solid var(--border);
     border-radius: 2px;
     overflow: hidden;
-    margin-bottom: 20px;
     box-shadow: 0 2px 20px rgba(27,58,92,0.06);
   }
 
@@ -187,11 +221,8 @@
     vertical-align: middle;
   }
 
-  .options-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
+  /* Options */
+  .options-list { display: flex; flex-direction: column; gap: 10px; }
 
   .option-item {
     display: flex;
@@ -214,8 +245,7 @@
   .option-item input[type="checkbox"] {
     appearance: none;
     -webkit-appearance: none;
-    width: 18px;
-    height: 18px;
+    width: 18px; height: 18px;
     border: 1.5px solid var(--border);
     flex-shrink: 0;
     margin-top: 1px;
@@ -242,13 +272,10 @@
   .option-item input[type="checkbox"]:checked::after {
     content: '';
     position: absolute;
-    left: 4px;
-    top: 2px;
-    width: 6px;
-    height: 9px;
+    left: 4px; top: 2px;
+    width: 6px; height: 9px;
     border: 2px solid white;
-    border-top: none;
-    border-left: none;
+    border-top: none; border-left: none;
     transform: rotate(45deg);
   }
 
@@ -266,6 +293,7 @@
     display: block;
   }
 
+  /* Conditional */
   .conditional-section {
     display: none;
     margin-top: 20px;
@@ -286,7 +314,6 @@
   .conditional-title {
     font-size: 12px;
     letter-spacing: 0.15em;
-    text-transform: uppercase;
     color: var(--gold);
     margin-bottom: 16px;
   }
@@ -302,9 +329,7 @@
     letter-spacing: 0.04em;
   }
 
-  .field-input,
-  .field-select,
-  .field-textarea {
+  .field-input, .field-select, .field-textarea {
     width: 100%;
     padding: 10px 14px;
     border: 1px solid var(--border);
@@ -318,18 +343,12 @@
     letter-spacing: 0.02em;
   }
 
-  .field-input:focus,
-  .field-select:focus,
-  .field-textarea:focus {
+  .field-input:focus, .field-select:focus, .field-textarea:focus {
     border-color: var(--gold-light);
     box-shadow: 0 0 0 3px rgba(154,123,79,0.08);
   }
 
-  .field-textarea {
-    resize: vertical;
-    min-height: 90px;
-    line-height: 1.8;
-  }
+  .field-textarea { resize: vertical; min-height: 90px; line-height: 1.8; }
 
   .field-select {
     appearance: none;
@@ -341,21 +360,13 @@
   }
 
   .date-slots { display: flex; flex-direction: column; gap: 8px; }
-
   .date-slot { display: flex; align-items: center; gap: 10px; }
-
-  .date-slot-label {
-    font-size: 12px;
-    color: var(--text-light);
-    white-space: nowrap;
-    width: 52px;
-    flex-shrink: 0;
-  }
+  .date-slot-label { font-size: 12px; color: var(--text-light); white-space: nowrap; width: 52px; flex-shrink: 0; }
 
   .other-input-wrap { display: none; margin-top: 8px; padding-left: 30px; }
   .other-input-wrap.visible { display: block; }
 
-  /* Submit */
+  /* Submit button area */
   .submit-area { text-align: center; padding: 40px 36px; }
 
   .submit-note {
@@ -366,7 +377,7 @@
     letter-spacing: 0.03em;
   }
 
-  .btn-submit {
+  .btn-primary {
     display: inline-block;
     padding: 16px 56px;
     background: var(--navy);
@@ -379,19 +390,27 @@
     cursor: pointer;
     transition: all 0.2s ease;
     border-radius: 1px;
-    position: relative;
   }
 
-  .btn-submit:hover {
-    background: #243F63;
-    letter-spacing: 0.3em;
+  .btn-primary:hover { background: #243F63; letter-spacing: 0.3em; }
+  .btn-primary:disabled { background: #aaa; cursor: not-allowed; letter-spacing: 0.25em; }
+
+  .btn-secondary {
+    display: inline-block;
+    padding: 14px 40px;
+    background: transparent;
+    color: var(--navy);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    letter-spacing: 0.2em;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 1px;
+    margin-right: 12px;
   }
 
-  .btn-submit:disabled {
-    background: #aaa;
-    cursor: not-allowed;
-    letter-spacing: 0.25em;
-  }
+  .btn-secondary:hover { border-color: var(--gold-light); color: var(--gold); }
 
   .sending-indicator {
     display: none;
@@ -403,7 +422,6 @@
 
   .sending-indicator.visible { display: block; }
 
-  /* Error message */
   .error-msg {
     display: none;
     margin-top: 12px;
@@ -419,33 +437,162 @@
 
   .error-msg.visible { display: block; }
 
-  /* Thank you */
-  .thankyou {
+  /* ===== CONFIRMATION SCREEN ===== */
+  .confirm-screen {
     display: none;
-    text-align: center;
-    padding: 60px 36px;
+    padding: 40px 36px;
+    animation: fadeIn 0.3s ease;
   }
 
-  .thankyou.visible { display: block; }
+  .confirm-screen.visible { display: block; }
 
-  .thankyou-icon { font-size: 40px; margin-bottom: 20px; }
+  .confirm-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--navy);
+    letter-spacing: 0.12em;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+  .confirm-subtitle {
+    font-size: 12.5px;
+    color: var(--text-light);
+    text-align: center;
+    margin-bottom: 32px;
+    letter-spacing: 0.04em;
+    line-height: 1.8;
+  }
+
+  .confirm-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 32px;
+  }
+
+  .confirm-table tr {
+    border-bottom: 1px solid var(--accent);
+  }
+
+  .confirm-table tr:last-child { border-bottom: none; }
+
+  .confirm-table th {
+    width: 36%;
+    padding: 14px 12px 14px 0;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-light);
+    letter-spacing: 0.06em;
+    vertical-align: top;
+    text-align: left;
+  }
+
+  .confirm-table td {
+    padding: 14px 0;
+    font-size: 13.5px;
+    color: var(--text);
+    line-height: 1.7;
+    letter-spacing: 0.02em;
+    vertical-align: top;
+  }
+
+  .confirm-table td.empty { color: var(--border); font-size: 12px; }
+
+  .confirm-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  /* ===== THANK YOU SCREEN ===== */
+  .thankyou-screen {
+    display: none;
+    padding: 60px 36px;
+    text-align: center;
+    animation: fadeIn 0.4s ease;
+  }
+
+  .thankyou-screen.visible { display: block; }
+
+  .thankyou-icon { font-size: 44px; margin-bottom: 20px; }
 
   .thankyou-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 28px;
+    font-size: 30px;
     font-weight: 300;
     color: var(--navy);
-    letter-spacing: 0.1em;
+    letter-spacing: 0.12em;
     margin-bottom: 16px;
   }
 
   .thankyou-text {
     font-size: 13.5px;
     color: var(--text-light);
-    line-height: 2;
-    letter-spacing: 0.03em;
+    line-height: 2.2;
+    letter-spacing: 0.04em;
+    margin-bottom: 40px;
   }
 
+  /* SNSリンク（サンクス画面） */
+  .thankyou-sns-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  .thankyou-sns-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+
+  .thankyou-sns-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    text-decoration: none;
+    background: white;
+    transition: all 0.18s ease;
+  }
+
+  .thankyou-sns-link:hover {
+    border-color: var(--gold-light);
+    background: rgba(154,123,79,0.04);
+  }
+
+  .thankyou-sns-link-icon { font-size: 18px; flex-shrink: 0; }
+
+  .thankyou-sns-link-text { text-align: left; }
+
+  .thankyou-sns-link-name {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--navy);
+    letter-spacing: 0.06em;
+  }
+
+  .thankyou-sns-link-url {
+    display: block;
+    font-size: 11px;
+    color: var(--text-light);
+    letter-spacing: 0.03em;
+    margin-top: 2px;
+  }
+
+  /* Footer */
   .page-footer { text-align: center; margin-top: 40px; }
 
   .footer-brand {
@@ -462,7 +609,9 @@
     .page-wrap { padding: 40px 16px 60px; }
     .brand-name { font-size: 36px; }
     .question-block { padding: 24px 20px; }
-    .submit-area { padding: 30px 20px; }
+    .confirm-screen, .submit-area, .thankyou-screen { padding: 30px 20px; }
+    .confirm-table th { width: 40%; }
+    .btn-secondary, .btn-primary { padding: 14px 28px; }
   }
 </style>
 </head>
@@ -470,6 +619,7 @@
 
 <div class="page-wrap">
 
+  <!-- HEADER -->
   <div class="header">
     <p class="brand-eyebrow">Daily Comfort Wear</p>
     <h1 class="brand-name">MAYGLOBE</h1>
@@ -482,17 +632,39 @@
     <p class="header-desc">
       ご関心をお持ちいただき、ありがとうございます。<br>
       いくつかご質問にお答えいただくだけで大丈夫です。<br>
-      ご回答いただいた内容をもとに、改めてご連絡いたします。
+      ご回答をもとに、改めてご連絡いたします。
     </p>
-    <!-- URLパラメータから取得したアカウント名を表示 -->
-    <div class="account-badge" id="accountBadge" style="display:none;">
-      <span class="account-badge-dot"></span>
-      <span id="accountBadgeText"></span>
+
+    <!-- SNSリンク -->
+    <div class="sns-bar">
+      <a class="sns-link" href="https://spring-officialshop.com/" target="_blank" rel="noopener">
+        <span class="sns-icon">🛍</span> SHOP
+      </a>
+      <a class="sns-link" href="https://www.instagram.com/mayglobe_by_tribaluxe/" target="_blank" rel="noopener">
+        <span class="sns-icon">📷</span> Instagram（ブランド）
+      </a>
+      <a class="sns-link" href="https://www.instagram.com/mayglobe_official/" target="_blank" rel="noopener">
+        <span class="sns-icon">📷</span> Instagram（公式）
+      </a>
+      <a class="sns-link" href="https://www.tiktok.com/@mayglobe" target="_blank" rel="noopener">
+        <span class="sns-icon">🎵</span> TikTok
+      </a>
+    </div>
+
+    <!-- アカウントバッジ -->
+    <div class="account-badge" id="accountBadge">
+      <div class="account-badge-inner">
+        <span class="account-badge-dot"></span>
+        <span id="accountBadgeText"></span>
+      </div>
     </div>
   </div>
 
-  <form id="mainForm">
-    <div class="form-card">
+  <!-- FORM CARD -->
+  <div class="form-card">
+
+    <!-- ===== フォーム入力画面 ===== -->
+    <form id="mainForm">
 
       <!-- Q1 -->
       <div class="question-block">
@@ -527,17 +699,11 @@
         <div class="options-list">
           <label class="option-item">
             <input type="checkbox" name="q2" value="商品を実際に試してみたい（ギフティング希望）" id="chk_gifting">
-            <span class="option-label">
-              商品を実際に試してみたい
-              <span class="option-sub">ギフティング希望</span>
-            </span>
+            <span class="option-label">商品を実際に試してみたい<span class="option-sub">ギフティング希望</span></span>
           </label>
           <label class="option-item">
             <input type="checkbox" name="q2" value="ブランドの話をもっと詳しく聞きたい（オンラインMTG希望）" id="chk_mtg">
-            <span class="option-label">
-              ブランドの話をもっと詳しく聞きたい
-              <span class="option-sub">オンラインMTG希望</span>
-            </span>
+            <span class="option-label">ブランドの話をもっと詳しく聞きたい<span class="option-sub">オンラインMTG希望</span></span>
           </label>
           <label class="option-item">
             <input type="checkbox" name="q2" value="投稿による紹介も積極的に検討可能">
@@ -557,18 +723,15 @@
           </label>
           <label class="option-item">
             <input type="checkbox" name="q2" value="その他" id="chk_other">
-            <span class="option-label">
-              その他、別の形での協力を考えたい
-              <span class="option-sub">商品へのフィードバック、委託販売、インフルエンサーの紹介など</span>
-            </span>
+            <span class="option-label">その他、別の形での協力を考えたい<span class="option-sub">商品へのフィードバック、委託販売、インフルエンサーの紹介など</span></span>
           </label>
         </div>
 
         <div class="other-input-wrap" id="otherWrap">
-          <textarea class="field-textarea" name="q2_other" placeholder="具体的にお聞かせいただけると嬉しいです（例：委託販売について相談したい、など）" rows="3"></textarea>
+          <textarea class="field-textarea" name="q2_other" placeholder="具体的にお聞かせいただけると嬉しいです" rows="3"></textarea>
         </div>
 
-        <!-- ギフティング情報 -->
+        <!-- ギフティング -->
         <div class="conditional-section" id="giftingSection">
           <p class="conditional-title">◆ ギフティング — お届け先</p>
           <div class="field-group">
@@ -594,11 +757,11 @@
           </div>
           <div class="field-group">
             <label class="field-label">サイズのご希望（あれば）</label>
-            <input type="text" class="field-input" name="gifting_size" placeholder="S / M / L など、ご自由にお書きください">
+            <input type="text" class="field-input" name="gifting_size" placeholder="S / M / L など">
           </div>
         </div>
 
-        <!-- MTG情報 -->
+        <!-- MTG -->
         <div class="conditional-section" id="mtgSection">
           <p class="conditional-title">◆ オンラインMTG — ご希望日時</p>
           <p class="field-label" style="margin-bottom:14px;">ご都合のよい日時を3つまでお知らせください</p>
@@ -655,36 +818,80 @@
         </div>
       </div>
 
-      <!-- Submit -->
-      <div class="submit-area" id="submitArea">
+      <!-- 回答するボタン -->
+      <div class="submit-area">
         <p class="submit-note">
-          ご回答いただいた内容は、MAYGLOBE by Tribaluxeの<br>
-          インフルエンサー施策の運営にのみ使用いたします。<br>
-          内容を確認の上、TOKYO PARTNERSよりご連絡いたします。
+          ご回答いただいた内容をご確認いただいてから送信できます。
         </p>
-        <button type="submit" class="btn-submit" id="submitBtn">送　　信</button>
-        <p class="sending-indicator" id="sendingMsg">送信中です。しばらくお待ちください…</p>
-        <div class="error-msg" id="errorMsg">
-          送信中にエラーが発生しました。<br>
-          お手数ですが、時間をおいて再度お試しいただくか、<br>
-          直接ご連絡いただけますと幸いです。
-        </div>
+        <button type="submit" class="btn-primary">回　答　す　る</button>
       </div>
 
-      <!-- Thank you -->
-      <div class="thankyou" id="thankyou">
-        <div class="thankyou-icon">🌿</div>
-        <p class="thankyou-title">ありがとうございます</p>
-        <p class="thankyou-text">
-          ご回答をお受け取りしました。<br>
-          内容を確認の上、TOKYO PARTNERSより<br>
-          改めてご連絡いたします。<br><br>
-          引き続きどうぞよろしくお願いいたします。
-        </p>
-      </div>
+    </form>
 
+    <!-- ===== 確認画面 ===== -->
+    <div class="confirm-screen" id="confirmScreen">
+      <p class="confirm-title">ご回答内容の確認</p>
+      <p class="confirm-subtitle">以下の内容で送信してよろしいですか？<br>修正がある場合は「戻る」をクリックしてください。</p>
+
+      <table class="confirm-table" id="confirmTable"></table>
+
+      <div class="confirm-actions">
+        <button class="btn-secondary" id="backBtn">戻　る</button>
+        <button class="btn-primary" id="sendBtn">送　信　す　る</button>
+      </div>
+      <p class="sending-indicator" id="sendingMsg">送信中です。しばらくお待ちください…</p>
+      <div class="error-msg" id="errorMsg">
+        送信中にエラーが発生しました。<br>
+        お手数ですが、時間をおいて再度お試しいただくか、<br>
+        直接ご連絡いただけますと幸いです。
+      </div>
     </div>
-  </form>
+
+    <!-- ===== サンクス画面 ===== -->
+    <div class="thankyou-screen" id="thankyouScreen">
+      <div class="thankyou-icon">🌿</div>
+      <p class="thankyou-title">ありがとうございます</p>
+      <p class="thankyou-text">
+        ご回答をお受け取りしました。<br>
+        内容を確認の上、TOKYO PARTNERSより<br>
+        改めてご連絡いたします。<br>
+        引き続きどうぞよろしくお願いいたします。
+      </p>
+
+      <p class="thankyou-sns-title">MAYGLOBE をチェック</p>
+      <div class="thankyou-sns-links">
+        <a class="thankyou-sns-link" href="https://spring-officialshop.com/" target="_blank" rel="noopener">
+          <span class="thankyou-sns-link-icon">🛍</span>
+          <span class="thankyou-sns-link-text">
+            <span class="thankyou-sns-link-name">ONLINE SHOP</span>
+            <span class="thankyou-sns-link-url">spring-officialshop.com</span>
+          </span>
+        </a>
+        <a class="thankyou-sns-link" href="https://www.instagram.com/mayglobe_by_tribaluxe/" target="_blank" rel="noopener">
+          <span class="thankyou-sns-link-icon">📷</span>
+          <span class="thankyou-sns-link-text">
+            <span class="thankyou-sns-link-name">Instagram（ブランド）</span>
+            <span class="thankyou-sns-link-url">@mayglobe_by_tribaluxe</span>
+          </span>
+        </a>
+        <a class="thankyou-sns-link" href="https://www.instagram.com/mayglobe_official/" target="_blank" rel="noopener">
+          <span class="thankyou-sns-link-icon">📷</span>
+          <span class="thankyou-sns-link-text">
+            <span class="thankyou-sns-link-name">Instagram（公式）</span>
+            <span class="thankyou-sns-link-url">@mayglobe_official</span>
+          </span>
+        </a>
+        <a class="thankyou-sns-link" href="https://www.tiktok.com/@mayglobe" target="_blank" rel="noopener">
+          <span class="thankyou-sns-link-icon">🎵</span>
+          <span class="thankyou-sns-link-text">
+            <span class="thankyou-sns-link-name">TikTok</span>
+            <span class="thankyou-sns-link-url">@mayglobe</span>
+          </span>
+        </a>
+      </div>
+    </div>
+
+  </div><!-- /form-card -->
 
   <div class="page-footer">
     <p class="footer-brand">MAYGLOBE by Tribaluxe</p>
@@ -695,27 +902,21 @@
 
 <script>
 // ============================================================
-// ★ GASデプロイ後、下のURLを書き換えてください
+// ★ GAS URL
 // ============================================================
 const GAS_URL = 'https://script.google.com/macros/s/AKfycbygIdMAVfqTATUsl5ymG0JTZYpdZ46Dk_f3QWzmT2YVjRc3HNzURGnNIWu94Q5AOfWb/exec';
 
-// ------------------------------------------------------------
-// URLパラメータからアカウント名を取得
-// 例：form.html?name=momiyoga → アカウント名として記録
-// ------------------------------------------------------------
+// URLパラメータからアカウント名
 const urlParams = new URLSearchParams(window.location.search);
 const accountName = urlParams.get('name') || '';
 
 if (accountName) {
   const badge = document.getElementById('accountBadge');
-  const badgeText = document.getElementById('accountBadgeText');
-  badgeText.textContent = '@' + accountName + ' さん専用フォーム';
-  badge.style.display = 'inline-flex';
+  document.getElementById('accountBadgeText').textContent = '@' + accountName + ' さん専用フォーム';
+  badge.style.display = 'flex';
 }
 
-// ------------------------------------------------------------
-// チェックボックス連動：条件表示
-// ------------------------------------------------------------
+// 条件表示
 const chkGifting = document.getElementById('chk_gifting');
 const chkMtg     = document.getElementById('chk_mtg');
 const chkOther   = document.getElementById('chk_other');
@@ -730,13 +931,12 @@ chkGifting.addEventListener('change', updateConditionals);
 chkMtg.addEventListener('change', updateConditionals);
 chkOther.addEventListener('change', updateConditionals);
 
-// ------------------------------------------------------------
-// フォーム送信
-// ------------------------------------------------------------
-document.getElementById('mainForm').addEventListener('submit', async function(e) {
+// ============================================================
+// フォーム送信 → 確認画面へ
+// ============================================================
+document.getElementById('mainForm').addEventListener('submit', function(e) {
   e.preventDefault();
 
-  // バリデーション
   const q1 = document.querySelector('input[name="q1"]:checked');
   const q4 = document.querySelector('input[name="q4"]:checked');
   const q2checked = document.querySelectorAll('input[name="q2"]:checked');
@@ -745,14 +945,70 @@ document.getElementById('mainForm').addEventListener('submit', async function(e)
   if (q2checked.length === 0) { alert('Q02：関わり方を1つ以上お選びください。'); return; }
   if (!q4) { alert('Q04：今後の連絡についてお選びください。'); return; }
 
-  // Q2の選択値を結合
-  const q2Values = Array.from(q2checked).map(c => c.value).join(' / ');
+  // 確認テーブルを構築
+  const q2Values = Array.from(q2checked).map(c => c.value).join('<br>');
+  const rows = [
+    ['Q01　感想',     q1.value],
+    ['Q02　関わり方', q2Values],
+  ];
 
-  // 送信データ構築
+  if (document.querySelector('textarea[name="q2_other"]').value) {
+    rows.push(['　その他内容', document.querySelector('textarea[name="q2_other"]').value]);
+  }
+  if (chkGifting.checked) {
+    rows.push(['ギフティング　宛名',   document.querySelector('input[name="gifting_name"]').value   || '（未入力）']);
+    rows.push(['ギフティング　郵便番号', document.querySelector('input[name="gifting_zip"]').value   || '（未入力）']);
+    rows.push(['ギフティング　住所',   (document.querySelector('input[name="gifting_address1"]').value + ' ' + document.querySelector('input[name="gifting_address2"]').value).trim() || '（未入力）']);
+    rows.push(['ギフティング　アイテム', document.querySelector('select[name="gifting_item"]').value || '（未選択）']);
+    rows.push(['ギフティング　サイズ',  document.querySelector('input[name="gifting_size"]').value  || '（なし）']);
+  }
+  if (chkMtg.checked) {
+    rows.push(['MTG　第1希望', document.querySelector('input[name="mtg_date1"]').value || '（未入力）']);
+    rows.push(['MTG　第2希望', document.querySelector('input[name="mtg_date2"]').value || '（未入力）']);
+    rows.push(['MTG　第3希望', document.querySelector('input[name="mtg_date3"]').value || '（未入力）']);
+    rows.push(['MTG　オンライン', document.querySelector('select[name="mtg_online"]').value]);
+  }
+
+  const q3val = document.querySelector('textarea[name="q3"]').value;
+  rows.push(['Q03　質問・気になる点', q3val || '（なし）']);
+  rows.push(['Q04　今後の連絡', q4.value]);
+
+  const table = document.getElementById('confirmTable');
+  table.innerHTML = rows.map(([th, td]) =>
+    `<tr><th>${th}</th><td>${td}</td></tr>`
+  ).join('');
+
+  // 画面切替
+  document.getElementById('mainForm').style.display = 'none';
+  document.getElementById('confirmScreen').classList.add('visible');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// 戻るボタン
+document.getElementById('backBtn').addEventListener('click', function() {
+  document.getElementById('confirmScreen').classList.remove('visible');
+  document.getElementById('mainForm').style.display = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// 送信するボタン
+document.getElementById('sendBtn').addEventListener('click', async function() {
+  const btn = document.getElementById('sendBtn');
+  const backBtn = document.getElementById('backBtn');
+  const sendingMsg = document.getElementById('sendingMsg');
+  const errorMsg = document.getElementById('errorMsg');
+
+  btn.disabled = true;
+  backBtn.disabled = true;
+  sendingMsg.classList.add('visible');
+  errorMsg.classList.remove('visible');
+
+  const q2checked = document.querySelectorAll('input[name="q2"]:checked');
+
   const payload = {
     account_name:     accountName,
-    q1:               q1.value,
-    q2:               q2Values,
+    q1:               document.querySelector('input[name="q1"]:checked')?.value || '',
+    q2:               Array.from(q2checked).map(c => c.value).join(' / '),
     q2_other:         document.querySelector('textarea[name="q2_other"]').value,
     gifting_name:     document.querySelector('input[name="gifting_name"]').value,
     gifting_zip:      document.querySelector('input[name="gifting_zip"]').value,
@@ -765,42 +1021,29 @@ document.getElementById('mainForm').addEventListener('submit', async function(e)
     mtg_date3:        document.querySelector('input[name="mtg_date3"]').value,
     mtg_online:       document.querySelector('select[name="mtg_online"]').value,
     q3:               document.querySelector('textarea[name="q3"]').value,
-    q4:               q4.value,
+    q4:               document.querySelector('input[name="q4"]:checked')?.value || '',
   };
 
-  // UI：送信中
-  const btn = document.getElementById('submitBtn');
-  const sendingMsg = document.getElementById('sendingMsg');
-  const errorMsg = document.getElementById('errorMsg');
-
-  btn.disabled = true;
-  sendingMsg.classList.add('visible');
-  errorMsg.classList.remove('visible');
-
   try {
-    const res = await fetch(GAS_URL, {
+    await fetch(GAS_URL, {
       method: 'POST',
-      mode: 'no-cors', // GAS WebAppはno-corsで送信
+      mode: 'no-cors',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
     });
 
-    // no-corsではレスポンス内容は読めないが、送信自体は成功
-    showThankyou();
+    // サンクス画面へ
+    document.getElementById('confirmScreen').classList.remove('visible');
+    document.getElementById('thankyouScreen').classList.add('visible');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 
   } catch (err) {
     btn.disabled = false;
+    backBtn.disabled = false;
     sendingMsg.classList.remove('visible');
     errorMsg.classList.add('visible');
-    console.error('送信エラー:', err);
   }
 });
-
-function showThankyou() {
-  document.getElementById('submitArea').style.display = 'none';
-  document.getElementById('thankyou').classList.add('visible');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
 </script>
 </body>
 </html>
